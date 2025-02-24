@@ -93,4 +93,3 @@ async def execute_query(request: Request, user_query: str = Form(...)):
             "error": f"Error executing query: {str(e)}"
         })
 
-# run uvicorn main:app --reload

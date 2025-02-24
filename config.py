@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
-DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://text_to_sql_user:your_secure_password@db/text_to_sql_db")
+# DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://text_to_sql_user:your_secure_password@db/text_to_sql_db")
 
 
 

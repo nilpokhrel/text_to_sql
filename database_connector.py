@@ -6,7 +6,7 @@ from contextlib import contextmanager
 DB_HOST = "localhost"
 DB_NAME = "cosmofoil"
 DB_USER = "text_to_sql_user"
-DB_PASSWORD = "NecurePss123"
+DB_PASSWORD = ""
 
 # Context manager for connecting to the database
 @contextmanager
