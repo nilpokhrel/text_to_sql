@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Results</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Query Results</h1>
+
+        <!-- Scrollable Generated SQL Query -->
+        <form>
+            <label><strong>Generated SQL Query:</strong></label>
+            <div class="scrollable-box">
+                <textarea readonly>{{ query }}</textarea>
+            </div>
+        </form>
+
+        {% if result %}
+        <div class="result-container">
+            <h2>Fetched Data</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            {% for column in result[0].keys() %}
+                                <th>{{ column }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in result %}
+                            <tr>
+                                {% for value in row.values() %}
+                                    <td>{{ value }}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% elif message %}
+            <p>{{ message }}</p>
+        {% elif error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <!-- User Comment Section -->
+        <div class="comment-section">
+            <h3>Leave a Comment:</h3>
+            <textarea id="user_comment" placeholder="Enter your feedback..."></textarea>
+            <button id="submitComment">Submit Comment</button>
+        </div>
+
+        <p class="review">Review Placeholder Text</p>
+        <a href="/">Back to Home</a>
+    </div>
+
+    <script>
+        document.getElementById("submitComment").addEventListener("click", function () {
+            let comment = document.getElementById("user_comment").value;
+            if (comment.trim() === "") {
+                alert("Please enter a comment before submitting.");
+            } else {
+                alert("Thank you for your feedback!");
+                document.getElementById("user_comment").value = "";
+            }
+        });
+    </script>
+</body>
+</html>

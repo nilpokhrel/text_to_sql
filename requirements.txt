@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+google-genai
+openai
+pydantic
+jinja2
+htmx
+psycopg2-binary  
+SQLAlchemy        
+pydantic          
+python-dotenv     
+
